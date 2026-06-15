@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-body">
+    <form #todoForm="ngForm" (ngSubmit)="onaddtopdo()">
+      <div class="form-group">
+        <label for="todoItem">Todo Item*</label>
+        <input
+          type="text"
+          name="todoItem"
+          id="todoItem"
+          class="form-control"
+          #todoItem="ngModel"
+          ngModel
+          required>
+      </div>
+<br>
+ <div class="form-group">
+        <label for="iscompleted">iscompleted*</label>
+   <select name="completed" id="completed" #completed="ngModel" ngModel class="form-control">
+    <option value="true">YES</option>
+    <option value="false">NO</option>
+   </select>
+      </div>
+      <button
+      *ngIf="!IsinEditmode"
+        type="submit"
+        class="btn btn-block btn-primary mt-2"
+        [disabled]="todoForm.invalid">
+        Add Todo
+      </button>
+
+        <button
+        (click)="onupdatetodo()"
+        *ngIf="IsinEditmode"
+        type="button"
+        class="btn btn-block btn-warning mt-2"
+        [disabled]="todoForm.invalid">
+        Update Todo
+      </button>
+    </form>
+  </div>
+</div>

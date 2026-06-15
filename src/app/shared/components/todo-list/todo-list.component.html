@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-body">
+        <ul class="list-group">
+            <li *ngFor="let todo of todoArr" class="d-flex justify-content-between list-group-item">
+                <strong>{{todo.todoItem}}</strong>
+                
+                <div>
+                    <button mat-mini-fab
+                    (click)="onEdittodo(todo)"
+                     color="primary" class="btn btn-sm btn-outline-primary">
+                     <mat-icon> edit</mat-icon>  
+                    </button>
+                    <button mat-mini-fab color="warn"
+                    (click)="onremovetodo(todo.id)"
+                    class=" btn btn-sm btn-outline-danger">
+                        <mat-icon>delete</mat-icon>  
+                </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
