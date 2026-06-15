@@ -30,6 +30,7 @@ if (this.todoForm.valid) {
   this._todoservice.getalltodo(addOBJ).subscribe({
     next: (res) => {
       console.log(res);
+      this.todoForm.reset();
 this._snackBar.openSnackBar(`Todo added successfully... ${res.msg}`,close);
     }
   });
@@ -62,6 +63,7 @@ id:this.edittodo.id
 this.IsinEditmode=false;
 console.log(updatedobj);
 this._todoservice.updatetodo(updatedobj);
+this.todoForm.reset();
 this._snackBar.openSnackBar(`Todo updated successfully... ${updatedobj.todoItem}`,close);
 }
 }
